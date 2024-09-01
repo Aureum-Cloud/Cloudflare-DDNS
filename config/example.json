@@ -1,0 +1,15 @@
+{
+  "ipv4_enabled": true,
+  "ipv6_enabled": false,
+  "ttl": 300,
+  "zones": [
+    {
+      "id": "d9e353b268c23a9737f5b40b31f92a6f",
+      "name": "aureum.cloud",
+      "update_root_domain": false,
+      "subdomains": [
+        "www"
+      ]
+    }
+  ]
+}

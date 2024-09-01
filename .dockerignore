@@ -1,0 +1,5 @@
+.dockerignore
+.gitignore
+Dockerfile
+logo.png
+README.md
