@@ -68,5 +68,5 @@ go run main.go --repeat
 To run this script in a Docker container, use the following command. Be sure to replace `<path-to-config>` with the path to your local configuration file and `<your_cloudflare_api_token>` with your actual Cloudflare API token:
 
 ```bash
-docker run -e CLOUDFLARE_API_TOKEN=<your_cloudflare_api_token> -v <path-to-config>:/etc/config/config.json cloudflare-ddns
+docker run -e CLOUDFLARE_API_TOKEN=<your_cloudflare_api_token> -v <path-to-config>:/etc/config/config.json ghcr.io/aureum-cloud/cloudflare-ddns:latest
 ```
