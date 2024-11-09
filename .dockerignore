@@ -1,5 +1,4 @@
-.dockerignore
-.gitignore
-Dockerfile
-logo.png
-README.md
+*
+!cmd/*
+!go.mod
+!go.sum

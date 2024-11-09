@@ -10,14 +10,23 @@ RUN go mod download
 
 COPY . /go/src
 
-RUN CGO_ENABLED=0 GOOS=linux go build -o /go/bin/cloudflare-ddns bootstrap/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build \
+    -trimpath \
+    -ldflags="-s -w" \
+    -o /go/bin/cloudflare-ddns \
+    cmd/main.go
 
 # Deploy the application binary into a lean image
-FROM alpine:3.19 AS build-release-stage
+FROM scratch
 
-COPY --from=build-stage /go/bin/cloudflare-ddns /usr/local/bin/cloudflare-ddns
+ARG UID=1000
+ARG GID=1000
 
-RUN addgroup -S nonroot && adduser -S nonroot -G nonroot
-USER nonroot:nonroot
+USER ${UID}:${GID}
+
+COPY --from=build-stage \
+     --chown=${UID}:${GID} \
+     /go/bin/cloudflare-ddns \
+     /usr/local/bin/cloudflare-ddns
 
 ENTRYPOINT ["cloudflare-ddns", "--repeat"]
