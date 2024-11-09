@@ -1,0 +1,28 @@
+image:
+  repository: ghcr.io/aureum-cloud/cloudflare-ddns
+  tag: latest
+  pullPolicy: IfNotPresent
+
+externalConfigMap: ""
+externalSecret: ""
+
+config:
+  configJson: |
+    {
+      "ipv4_enabled": true,
+      "ipv6_enabled": false,
+      "ttl": 300,
+      "zones": [
+        {
+          "id": "your_zone_id_here",
+          "name": "your_root_domain_here",
+          "update_root_domain": false,
+          "subdomains": [
+            "your_subdomain_here"
+          ]
+        }
+      ]
+    }
+
+secrets:
+  cloudflareApiToken: "your_cloudflare_api_token_here"

@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: cloudflare-ddns-network-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: cloudflare-ddns
+  ingress: []  # Block all ingress traffic
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 1.1.1.1/32
+        - ipBlock:
+            cidr: 1.0.0.1/32
+        - ipBlock:
+            cidr: 2606:4700:4700::1111/128
+        - ipBlock:
+            cidr: 2606:4700:4700::1001/128
+    - ports:
+        - protocol: TCP
+          port: 443
+  policyTypes:
+    - Ingress
+    - Egress

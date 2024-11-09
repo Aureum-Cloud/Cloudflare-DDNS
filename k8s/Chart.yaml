@@ -1,0 +1,21 @@
+apiVersion: v2
+name: cloudflare-ddns
+version: 1.0.0
+description: Helm chart for Cloudflare DDNS
+type: application
+keywords:
+  - dns
+  - ddns
+  - ipv4
+  - ipv6
+  - cloudflare
+home: https://github.com/Aureum-Cloud/Cloudflare-DDNS
+maintainers:
+  - name: Aureum Cloud
+    url: https://www.aureum.cloud
+  - name: N-Bit
+    email: cloud@n-bit.nl
+    url: https://www.n-bit.nl
+  - name: Niek Berenschot
+icon: https://raw.githubusercontent.com/Aureum-Cloud/Cloudflare-DDNS/refs/heads/main/logo.png
+appVersion: "1.0.1"
