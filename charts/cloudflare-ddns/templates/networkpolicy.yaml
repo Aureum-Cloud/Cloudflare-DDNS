@@ -8,7 +8,18 @@ spec:
       app: cloudflare-ddns
   ingress: []  # Block all ingress traffic
   egress:
-    - to:
+    # Allow DNS traffic
+    - ports:
+      - protocol: UDP
+        port: 53
+      - protocol: TCP
+        port: 53
+
+    # Allow HTTPS traffic only to Cloudflare IP ranges
+    - ports:
+        - protocol: TCP
+          port: 443
+      to:
         - ipBlock:
             cidr: 1.1.1.1/32
         - ipBlock:
@@ -17,8 +28,7 @@ spec:
             cidr: 2606:4700:4700::1111/128
         - ipBlock:
             cidr: 2606:4700:4700::1001/128
-
-{{/* https://www.cloudflare.com/ips-v4/# */}}
+        {{/* https://www.cloudflare.com/ips-v4/# */}}
         - ipBlock:
             cidr: 173.245.48.0/20
         - ipBlock:
@@ -49,8 +59,7 @@ spec:
             cidr: 172.64.0.0/13
         - ipBlock:
             cidr: 131.0.72.0/22
-
-{{/* https://www.cloudflare.com/ips-v6/# */}}
+        {{/* https://www.cloudflare.com/ips-v6/# */}}
         - ipBlock:
             cidr: 2400:cb00::/32
         - ipBlock:
@@ -65,9 +74,6 @@ spec:
             cidr: 2a06:98c0::/29
         - ipBlock:
             cidr: 2c0f:f248::/32
-    - ports:
-        - protocol: TCP
-          port: 443
   policyTypes:
     - Ingress
     - Egress
