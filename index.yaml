@@ -3,6 +3,31 @@ entries:
   cloudflare-ddns:
   - apiVersion: v2
     appVersion: v1.0.1
+    created: "2024-12-09T21:34:10.160452189Z"
+    description: Helm chart for Cloudflare DDNS
+    digest: 66189b279253b010191f7bcfad8a2a264ed0725372111368b0e98a2f4041610b
+    home: https://github.com/Aureum-Cloud/Cloudflare-DDNS
+    icon: https://raw.githubusercontent.com/Aureum-Cloud/Cloudflare-DDNS/refs/heads/main/logo.png
+    keywords:
+    - dns
+    - ddns
+    - ipv4
+    - ipv6
+    - cloudflare
+    maintainers:
+    - name: Aureum Cloud
+      url: https://www.aureum.cloud
+    - email: cloud@n-bit.nl
+      name: N-Bit
+      url: https://www.n-bit.nl
+    - name: Niek Berenschot
+    name: cloudflare-ddns
+    type: application
+    urls:
+    - https://github.com/Aureum-Cloud/Cloudflare-DDNS/releases/download/cloudflare-ddns-1.0.3/cloudflare-ddns-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
+    appVersion: v1.0.1
     created: "2024-12-09T20:17:49.137905876Z"
     description: Helm chart for Cloudflare DDNS
     digest: d8ecb670abf340c4ca75969fb3f81411793d7b323fc1a7b83ec702da7b5dd3b7
@@ -76,4 +101,4 @@ entries:
     urls:
     - https://github.com/Aureum-Cloud/Cloudflare-DDNS/releases/download/cloudflare-ddns-1.0.0/cloudflare-ddns-1.0.0.tgz
     version: 1.0.0
-generated: "2024-12-09T20:17:49.137919091Z"
+generated: "2024-12-09T21:34:10.160468629Z"
