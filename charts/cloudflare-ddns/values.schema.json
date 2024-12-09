@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "image": {
+      "type": "object",
+      "properties": {
+        "repository": {
+          "type": "string",
+          "description": "The repository of the Docker image."
+        },
+        "tag": {
+          "type": "string",
+          "description": "The tag of the Docker image."
+        },
+        "pullPolicy": {
+          "type": "string",
+          "enum": ["Always", "IfNotPresent", "Never"],
+          "description": "The image pull policy."
+        }
+      },
+      "required": ["repository", "tag", "pullPolicy"]
+    },
+    "externalConfigMap": {
+      "type": "string",
+      "description": "Optional external ConfigMap name."
+    },
+    "externalSecret": {
+      "type": "string",
+      "description": "Optional external Secret name."
+    },
+    "config": {
+      "type": "object",
+      "properties": {
+        "configJson": {
+          "type": "string",
+          "description": "Configuration in JSON format as a string."
+        }
+      },
+      "required": ["configJson"]
+    },
+    "secrets": {
+      "type": "object",
+      "properties": {
+        "cloudflareApiToken": {
+          "type": "string",
+          "description": "Cloudflare API token."
+        }
+      },
+      "required": ["cloudflareApiToken"]
+    }
+  },
+  "required": ["image", "config", "secrets"],
+  "additionalProperties": false
+}

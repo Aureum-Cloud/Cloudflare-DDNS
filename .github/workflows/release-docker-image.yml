@@ -1,24 +1,24 @@
-name: Publish Docker image
+name: Release Docker Image
 
 on:
-  release:
-    types: [published]
-
-env:
-  REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  push:
+    tags:
+      - '*'
 
 jobs:
-  build_and_push:
-    name: Build and push Docker image
+  release-docker:
     runs-on: ubuntu-latest
+
     permissions:
       packages: write
       contents: read
-      attestations: write
-      id-token: write
+
+    env:
+      REGISTRY: ghcr.io
+      IMAGE_NAME: ${{ github.repository }}
+
     steps:
-      - name: Check out the repo
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Log in to GitHub Container Registry

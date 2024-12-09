@@ -18,4 +18,4 @@ maintainers:
     url: https://www.n-bit.nl
   - name: Niek Berenschot
 icon: https://raw.githubusercontent.com/Aureum-Cloud/Cloudflare-DDNS/refs/heads/main/logo.png
-appVersion: "1.0.1"
+appVersion: "v1.0.1"
