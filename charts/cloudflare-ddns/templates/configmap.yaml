@@ -1,7 +1,9 @@
+{{- if .Values.config.configJson }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloudflare-ddns-config
 data:
   config.json: |
-    {{ .Values.config.configJson | indent 4 }}
+{{ .Values.config.configJson | indent 4 }}
+{{- end }}

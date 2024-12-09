@@ -1,6 +1,6 @@
 apiVersion: v2
 name: cloudflare-ddns
-version: 1.0.0
+version: 1.0.1
 description: Helm chart for Cloudflare DDNS
 type: application
 keywords:
