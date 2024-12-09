@@ -25,6 +25,10 @@ ARG GID=1000
 USER ${UID}:${GID}
 
 COPY --from=build-stage \
+     /etc/ssl/certs/ca-certificates.crt \
+     /etc/ssl/certs/
+
+COPY --from=build-stage \
      --chown=${UID}:${GID} \
      /go/bin/cloudflare-ddns \
      /usr/local/bin/cloudflare-ddns

@@ -249,7 +249,7 @@ func makeCloudflareAPIRequest(endpoint, method string, data interface{}) (map[st
 		return nil, fmt.Errorf("error decoding response: %w", err)
 	}
 
-	if result["errors"] != nil {
+	if errors, ok := result["errors"].([]interface{}); ok && len(errors) != 0 {
 		return nil, fmt.Errorf("%v", result["errors"])
 	}
 
